@@ -19,15 +19,15 @@ function App() {
   return (
     <>
       <main>
-        <form onSubmit={ handleSubmit }> 
-          <input type="text" id="search" placeholder="Cidade" required 
-          onChange={({target}) => SetCity(target.value)}
-          value={city}/>
-          <input type="submit" />
-        </form>
         <>
           <Card data={data} />
         </>
+        <form onSubmit={ handleSubmit }> 
+          <input type="text" id="search" placeholder="City" required 
+          onChange={({target}) => SetCity(target.value)}
+          value={city}/>
+          <button type="submit" id="submit">Search</button>
+        </form>
       </main>
     </>
   )
