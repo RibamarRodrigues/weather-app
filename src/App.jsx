@@ -2,6 +2,7 @@ import { useState } from 'react';
 import fetchData from './services/api';
 import Card from './components/Card';
 import initialData from './helpers/initialData';
+import errorData from './helpers/errorData';
 import './styles/App.css';
 
 function App() {
@@ -12,7 +13,12 @@ function App() {
     event.preventDefault();
 
     fetchData(city).then((response)=> {
-      SetData(response);
+      if (response.error) 
+        SetData(errorData);
+      else {
+        SetData(response);
+        SetCity('');
+      }
     })
   }
 
